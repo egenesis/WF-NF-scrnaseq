@@ -38,7 +38,7 @@ def create_transcript_list(input, use_name = True, use_version = False):
         if l[2] == 'transcript':
             info = l[8]
             d = {}
-            for x in info.split('; '):
+            for x in info.split(';'):
                 x = x.strip()
                 p = x.find(' ')
                 if p == -1:

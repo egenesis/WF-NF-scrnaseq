@@ -446,7 +446,7 @@ process build_gene_map{
     }
     """
     $unzip
-    cat $name | t2g.py --use_version > transcripts_to_genes.txt
+    cat $name | t2g.py > transcripts_to_genes.txt
     """
 }
 
@@ -636,7 +636,7 @@ process bustools_correct_sort{
     """
     $correct    
     mkdir -p tmp
-    bustools sort -T tmp/ -t ${task.cpus} -m ${task.memory.toGiga()}G -o ${bus}/output.corrected.sort.bus $sort_file
+    bustools sort -T tmp/ -t 8 -m 16G -o ${bus}/output.corrected.sort.bus $sort_file
     """
 }
 
