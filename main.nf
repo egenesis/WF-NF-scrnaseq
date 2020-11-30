@@ -653,14 +653,11 @@ process bustools_count{
     file t2g from kallisto_gene_map.collect()
 
     output:
-    file "${bus}_eqcount"
     file "${bus}_genecount"
 
     script:
     """
-    mkdir -p ${bus}_eqcount
     mkdir -p ${bus}_genecount
-    bustools count -o ${bus}_eqcount/tcc -g $t2g -e ${bus}/matrix.ec -t ${bus}/transcripts.txt ${bus}/output.corrected.sort.bus
     bustools count -o ${bus}_genecount/gene -g $t2g -e ${bus}/matrix.ec -t ${bus}/transcripts.txt --genecounts ${bus}/output.corrected.sort.bus
     """
 }
